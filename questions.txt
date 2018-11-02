@@ -1,0 +1,60 @@
+Questions
+1.	What programming language was created and maintained by Sun Microsystems, now Oracle Corporation, in 1995?
+Ans: Java
+
+2.	How many bits are in a byte?
+Ans: 8
+
+3.	This common network protocol is used to transfer information via the World Wide Web.
+Ans: Http/Https 
+
+4.	This popular web-based programming language helps power web pages in addition to html and css elements.
+Ans: Javascipt
+
+5.	What device (firmware) found in computers is used to load the machine�s operating system, thus booting it up?
+Ans: ROM (Read only memory)
+
+6.	This essential software component is found on every computer, and handles task scheduling, application loading, and controlling settings/peripherals.
+Ans: Operating System
+
+7.	A man by the name of _____ is credited as the creator of the first affordable, easy to use home PC.
+Ans: Ed Roberts
+
+8.	Many have dubbed ____ as the �world�s greatest hacker� due to his successful efforts to hack into over 40 phone centers and computer databases in the late 1970s into the early 1980s.
+Ans: Kevin Mitnick
+
+9.	Who is the founder of Microsoft: a multimillion dollar tech company.
+Ans: Bill Gates
+
+10.	The brain of the computer system that handles processing is known as the ____
+Ans: CPU
+
+11.	What is the name of the system that utilizes 0�s and 1�s inside of computers to symbolize �off� and �on� as a method of coding?
+Ans: Binary
+
+12.	What university did Aaron attend?
+Ans: Penn State
+
+13.	This technology company develops tax software utilized by ecommerce giants such as Amazon to ensure tax compliance
+Ans: Vertex
+
+14.	This computer manufacturing company has been in business since 1924, and has developed inventions such as the ATM and floppy disk.
+Ans: IBM
+
+15.	What year was the first apple computer, the Apple 1, first invented and built by Steve Wozniak and his friend Steve Jobs.
+Ans: 1976
+
+16.	Amazon developed a voice-controlled intelligent personal assistant (VCIPA) technology service, now found in many homes, named ___
+Ans: Echo/Alexa
+
+17.	This $100+ billion-dollar company owns %95 percent of the search engine market.
+Ans: Google
+
+18.	What computer data storage unit found in computers allows the CPU quick access and modification of stored data?
+Ans: RAM (Random Access Memory)
+
+19.	1000 bytes is one ___
+Ans: Kilobyte
+
+20.	What variable type in programming languages is typically used to store numbers?
+Ans: int

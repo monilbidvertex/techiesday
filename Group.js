@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 class Group {
 
   constructor() {
@@ -23,4 +20,3 @@ class Group {
       return winner;
     }
 }
->>>>>>> 00566d443f74914ee223e05dd97e8301cf263e3b

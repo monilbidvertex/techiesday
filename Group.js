@@ -18,7 +18,7 @@ class Group {
     sortGroup() {
       players.sort(function(a, b){return a.getWins() - b.getWins()});
       return players;
-  }
+    }
 
     getWinner() {
       winner = players.get(0);

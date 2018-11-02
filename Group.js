@@ -1,4 +1,9 @@
 class Group {
+  /**
+   * This class will represent a group in a game.
+   * A group can have an arraylist of players and can sort them in ascending
+   * order by their amount of wins
+   */
 
   constructor() {
     this.players = [];

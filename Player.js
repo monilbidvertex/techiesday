@@ -15,6 +15,10 @@ class Player {
     this.losses = 0;
    }
 
+   getPlayerName() {
+     return this.name;
+   }
+
    addWin() {
      this.wins += 1;
    }

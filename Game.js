@@ -77,7 +77,7 @@ function addLossInGame(name) {
       player = players[i];
     }
   }
-
+  
   // Make sure that the player was found.
   if(player == null) {
     alert("An unexpected error occurred.");

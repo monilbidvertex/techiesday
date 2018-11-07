@@ -1,26 +1,112 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<script src="HTML_Injector.js"></script>
 <body>
-  <div class="w3-border w3-row-padding">
-    <center>
-      <h1>Game</h1>
-    </center>
-    <div class="w3-half">
-      <div class="w3-border">
-        <div class="w3-container w3-blue">
-          <h2>Group 1</h2>
+  <div id="groups">
+    <div class="group_div">
+      <div class="group_title">Group 1</div>
+      <div class="players" id="group_1">
+        <div class="player">
+          <p class="player_name">Player 1</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
+        </div>
+        <div class="player">
+          <p class="player_name">Player 2</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
+        </div>
+        <div class="player">
+          <p class="player_name">Player 3</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
+        </div>
+        <div class="player">
+          <p class="player_name">Player 4</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
         </div>
       </div>
     </div>
-    <div class="w3-half">
-      <div class="w3-border">
-        <div class="w3-container w3-red">
-          <h2>Group 2</h2>
+    <div class="group_div">
+      <div class="group_title">Group 2</div>
+      <div class="players" id="group_2">
+        <div class="player">
+          <p class="player_name">Player 5</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
+        </div>
+        <div class="player">
+          <p class="player_name">Player 6</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
+        </div>
+        <div class="player">
+          <p class="player_name">Player 7</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
+        </div>
+        <div class="player">
+          <p class="player_name">Player 8</p>
+          <p class="wins">Wins: <span class="num_wins"></span></p>
+          <p class="losses">Losses: <span class="num_losses"></span></p>
         </div>
       </div>
     </div>
   </div>
+  <div id="button_div"><button id="game_button" onclick="alert('clicked')">Start Game!</button></div>
 </body>
+<script>
+  players = [
+    {
+      id: "name1",
+      name: "Aaron 1"
+    },
+    {
+      id: "name2",
+      name: "Aaron 2"
+    },
+    {
+      id: "name3",
+      name: "Aaron 3"
+    },
+    {
+      id: "name4",
+      name: "Aaron 4"
+    },
+    {
+      id: "name5",
+      name: "Aaron 5"
+    }
+  ];
+
+  html = "";
+
+  var i = 0
+  var playersLength = players.length
+
+
+
+  for(i; i<playersLength/2; i++) {
+    html += html_injector(players[i].id, players[i].name)
+  }
+  group_1 = document.getElementById("group_1")
+  group_1.innerHTML = html;
+
+  alert("i = " + i)
+
+  html = ""
+
+  for(i; i<playersLength; i++) {
+    console.log("i = " + i)
+    html += html_injector(players[i].id, players[i].name)
+  }
+
+  group_2 = document.getElementById("group_2")
+  group_2.innerHTML = html;
+
+</script>
 </html>

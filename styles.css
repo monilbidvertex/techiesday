@@ -1,0 +1,73 @@
+#groups {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.group_title {
+  text-align: center;
+  font-size: 40px;
+}
+
+.group_div {
+  box-sizing: border-box;
+  width: 45%;
+  display: inline-block;
+}
+
+#group_1 {
+  border: 2px solid red;
+}
+
+#group_2 {
+  border: 2px solid blue;
+}
+
+.player {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: orange;
+  border-radius: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+#button_div {
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+#game_button {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.player_name {
+  width: 40%;
+  display: inline-block;
+}
+
+.wins {
+  width: 20%;
+  display: inline-block;
+}
+
+.losses {
+  width: 20%;
+  display: inline-block;
+}

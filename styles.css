@@ -1,3 +1,6 @@
+.body {
+  font-family: "Arial", serif;
+}
 #groups {
   margin-left: 5%;
   margin-right: 5%;
@@ -27,7 +30,6 @@
   margin-right: 10%;
   border-radius: 10px;
   padding-left: 10px;
-  cursor: pointer;
   border: 2px solid black;
 }
 
@@ -60,11 +62,13 @@
 .wins {
   width: 20%;
   display: inline-block;
+  cursor: pointer;
 }
 
 .losses {
   width: 20%;
   display: inline-block;
+  cursor: pointer;
 }
 
 #question_div {

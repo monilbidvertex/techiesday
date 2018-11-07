@@ -1,41 +1,119 @@
-class Game {
+function createPlayers() {
+  var players = [];
 
-  var min=0;
-  var max=3;
-  var random = Math.floor(Math.random() * (+max - +min)) + +min;
+  // Create an array of Player objects.
+  for(var i=0; i<students.length; i++) {
+    players.push(new Player(students[i]));
+  }
 
-  var questions = ["What programming language was created and maintained by Sun Microsystems, now Oracle Corporation, in 1995?",
-                  "How many bits are in a byte?",
-                  "This common network protocol is used to transfer information via the World Wide Web",
-                  "This popular web-based programming language helps power web pages in addition to html and css elements.",
-                  "What device (firmware) found in computers is used to load the machine's operating system, thus booting it up?",
-                  "This essential software component is found on every computer, and handles task scheduling, application loading, and controlling settings/peripherals.",
-                  "A man by the name of _____ is credited as the creator of the first affordable, easy to use home PC.",
-                  "Many have dubbed ____ as the world's greatest hacker due to his successful efforts to hack into over 40 phone centers and computer databases in the late 1970s into the early 1980s.",
-                  "Who is the founder of Microsoft: a multimillion dollar tech company.",
-                  "The 'brain' of the computer system that handles processing is known as the ____",
-                  "What is the name of the system that utilizes 0's and 1's inside of computers to symbolize off and on as a method of coding?",
-                  "What university did Aaron attend?",
-                  "This technology company develops tax software utilized by ecommerce giants such as Amazon to ensure tax compliance.",
-                  "This computer manufacturing company has been in business since 1924, and has developed inventions such as the ATM and floppy disk.",
-                  "What year was the first apple computer, the Apple 1, first invented and built by Steve Wozniak and his friend Steve Jobs?",
-                  "Amazon developed a voice-controlled intelligent personal assistant (VCIPA) technology service, now found in many homes, named ___",
-                  "This $100+ billion-dollar company owns %95 percent of the search engine market.",
-                  "What computer data storage unit found in computers allows the CPU quick access and modification of stored data?",
-                  "1000 bytes is one ___",
-                  "What variable type in programming languages is typically used to store numbers?"]
+  return players
+}
 
-  var answers = ["Java", "8", "http/https", "Javascript", "ROM (Read Only Memory)", "Operating System", "Ed Roberts",
-                "Kevin Mitnick", "Bill Gates", "CPU (Central Processing Unit)", "Binary", "Penn State", "Vertex Inc.",
-                "IBM", "1976", "Echo/Alexa", "Google", "RAM (Random Access Memory)", "Kilobyte (KB)", "int"]
+function createGameLayout() {
+  var numberOfPlayers = players.length;
 
-  var students = ["Aaron", "Mike", "Monil", "Nate"];
+  // Form the groups.
+  var groupOne = players.slice(0, numberOfPlayers/2);
+  var groupTwo = players.slice(numberOfPlayers/2, numberOfPlayers);
 
-  var students2 = ["Harry","Omar","John","Ryan"];
+  // Get the divs for each group.
+  var groupOneDiv = document.getElementById(groupDivIds["group_1"]);
+  var groupTwoDiv = document.getElementById(groupDivIds["group_2"]);
 
-  group1 = new group(students);
-  group2 = new group(students2);
+  for(var i=0; i<groupOne.length; i++) {
+    var name = groupOne[i].getPlayerName();
+    var wins = groupOne[i].getWins();
+    var losses = groupOne[i].getLosses();
 
-  //var removedItem = students.splice(pos, random)
+    groupOneDiv.innerHTML += playerHTMLCreator(name, wins, losses);
+  }
 
+  for(var i=0; i<groupTwo.length; i++) {
+    var name = groupTwo[i].getPlayerName();
+    var wins = groupTwo[i].getWins();
+    var losses = groupTwo[i].getLosses();
+
+    groupTwoDiv.innerHTML += playerHTMLCreator(name, wins, losses);
+  }
+}
+
+function playerHTMLCreator(name, wins, losses) {
+  // Generate HTML for each player's div.
+  var html = "<div class=\"player\" id='" + name + "'>";
+  html += "<p class=\"player_name\">" + name + "</p>";
+  html += "<p class=\"wins\" onclick=\"addWinInGame('" + name + "')\">Wins: <span class=\"num_wins\">" + wins + "</span></p>";
+  html += "<p class=\"losses\" onclick=\"addLossInGame('" + name + "')\">Losses: <span class=\"num_losses\">" + losses + "</span></p>";
+  html += "</div>";
+
+  return html;
+}
+
+function addWinInGame(name) {
+  // Increment player's wins.
+  var player = null;
+  for(var i=0; i<players.length; i++) {
+    if(players[i].getPlayerName() == name) {
+      players[i].addWin();
+      player = players[i];
+    }
+  }
+
+  // Make sure that the player was found.
+  if(player == null) {
+    alert("An unexpected error occurred.");
+  }
+
+  // Update player's wins on the UI.
+  var winsOfPlayerSpan = document.getElementById(name).getElementsByClassName("num_wins")[0];
+  winsOfPlayerSpan.innerHTML = player.getWins();
+}
+
+function addLossInGame(name) {
+  // Increment player's losses.
+  var player = null;
+  for(var i=0; i<players.length; i++) {
+    if(players[i].getPlayerName() == name) {
+      players[i].addLoss();
+      player = players[i];
+    }
+  }
+
+  // Make sure that the player was found.
+  if(player == null) {
+    alert("An unexpected error occurred.");
+  }
+
+  // Update player's losses on the UI.
+  var winsOfPlayerSpan = document.getElementById(name).getElementsByClassName("num_losses")[0];
+  winsOfPlayerSpan.innerHTML = player.getLosses();
+}
+
+function generateRandomSequenceOfNumbers() {
+  // Generate a random order of numbers from 0 through 19.
+  var randomOrder = [];
+  var maxNumber = 20;
+
+  while(randomOrder.length<maxNumber) {
+    var randomNumber = Math.floor(Math.random()*20);
+    if(randomOrder.indexOf(randomNumber) > -1) continue;
+    randomOrder[randomOrder.length] = randomNumber;
+  }
+
+  return randomOrder;
+}
+
+function displayQuestion() {
+  // Display a new question in the game.
+  if(orderOfQuestions.length == 0) {
+    alert("Whoops! All out of questions. :(");
+    return;
+  }
+  var questionDiv = document.getElementById("question");
+  var lastElementOfOrderOfQuestions = orderOfQuestions[orderOfQuestions.length - 1];
+
+  var question = questions[lastElementOfOrderOfQuestions];
+  questionDiv.innerHTML = question;
+
+  // Remove the last element of the array.
+  orderOfQuestions.pop();
 }

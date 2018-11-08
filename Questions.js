@@ -20,3 +20,7 @@ var questions = [
   "1000 bytes is one ___",
   "What variable type in programming languages is typically used to store numbers?"
 ]
+
+var answers = ["Java", "8", "http/https", "Javascript", "ROM (Read Only Memory)", "Operating System", "Ed Roberts",
+"Kevin Mitnick", "Bill Gates", "CPU (Central Processing Unit)", "Binary", "Penn State", "Vertex Inc.",
+"IBM", "1976", "Echo/Alexa", "Google", "RAM (Random Access Memory)", "Kilobyte (KB)", "int"]

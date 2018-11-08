@@ -38,23 +38,31 @@ function createGameLayout() {
 }
 
 function playerHTMLCreator(name, wins, losses) {
+  var totalPoints = wins - losses;
+
   // Generate HTML for each player's div.
-  var html = "<div class=\"player\" id='" + name + "'>";
+  var html = "<div class=\"player\">";
   html += "<p class=\"player_name\">" + name + "</p>";
-  html += "<p class=\"wins\" onclick=\"addWinInGame('" + name + "')\">Wins: <span class=\"num_wins\">" + wins + "</span></p>";
-  html += "<p class=\"losses\" onclick=\"addLossInGame('" + name + "')\">Losses: <span class=\"num_losses\">" + losses + "</span></p>";
+  html += "<div class=\"player_points\">";
+  html += "<p class=\"wins scoring\" onclick=\"updatePoints('" + name + "', true)\">Win</p>";
+  html += "<p class=\"points scoring\" id=\"" + name + "\">" + totalPoints + "</p>";
+  html += "<p class=\"losses scoring\" onclick=\"updatePoints('" + name + "', false)\">Loss</p>";
+  html += "</div>";
   html += "</div>";
 
   return html;
 }
 
-function addWinInGame(name) {
-  // Increment player's wins.
+function updatePoints(name, pointIncrement) {
+  var points = 1;
+  if(pointIncrement == false) {
+    points = -1;
+  }
   var player = null;
   for(var i=0; i<players.length; i++) {
     if(players[i].getPlayerName() == name) {
-      players[i].addWin();
-      player = players[i];
+      players[i].setPoints(points);
+      player = players[i]
     }
   }
 
@@ -64,28 +72,8 @@ function addWinInGame(name) {
   }
 
   // Update player's wins on the UI.
-  var winsOfPlayerSpan = document.getElementById(name).getElementsByClassName("num_wins")[0];
-  winsOfPlayerSpan.innerHTML = player.getWins();
-}
-
-function addLossInGame(name) {
-  // Increment player's losses.
-  var player = null;
-  for(var i=0; i<players.length; i++) {
-    if(players[i].getPlayerName() == name) {
-      players[i].addLoss();
-      player = players[i];
-    }
-  }
-
-  // Make sure that the player was found.
-  if(player == null) {
-    alert("An unexpected error occurred.");
-  }
-
-  // Update player's losses on the UI.
-  var winsOfPlayerSpan = document.getElementById(name).getElementsByClassName("num_losses")[0];
-  winsOfPlayerSpan.innerHTML = player.getLosses();
+  var playerPoints = document.getElementById(name);
+  playerPoints.innerHTML = player.getPoints();
 }
 
 function generateRandomSequenceOfNumbers() {

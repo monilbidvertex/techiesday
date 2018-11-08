@@ -13,6 +13,7 @@ class Player {
     this.name = name;
     this.wins = 0;
     this.losses = 0;
+    this.points = this.wins - this.losses;
   }
 
   getPlayerName() {
@@ -41,5 +42,13 @@ class Player {
 
   getLosses() {
     return this.losses;
+  }
+
+  getPoints() {
+    return this.points;
+  }
+
+  setPoints(points) {
+    this.points += points;
   }
 }

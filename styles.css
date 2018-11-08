@@ -60,15 +60,19 @@
 }
 
 .wins {
-  width: 20%;
   display: inline-block;
   cursor: pointer;
+  margin-right: 20px;
 }
 
 .losses {
-  width: 20%;
   display: inline-block;
   cursor: pointer;
+  margin-left: 20px;
+}
+
+.scoring {
+  display: inline-block;
 }
 
 #question_div {
@@ -83,4 +87,9 @@
   margin-top: 40px;
   text-align: center;
   font-size: 60px;
+}
+
+.player_points {
+  display: inline-block;
+  margin-left: 20%;
 }

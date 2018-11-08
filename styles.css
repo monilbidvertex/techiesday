@@ -78,3 +78,9 @@
   padding-left: 10%;
   padding-right: 10%;
 }
+
+#game_title {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 60px;
+}

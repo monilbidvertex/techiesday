@@ -9,6 +9,22 @@ function createPlayers() {
   return players
 }
 
+function generatePlayerMatches(players) {
+  var results = [];
+
+// Since you only want pairs, there's no reason
+// to iterate over the last element directly
+  for (var i = 0; i < players.length - 1; i++) {
+    // This is where you'll capture that last value
+    for (var j = i + 1; j < players.length; j++) {
+      results.push(players[i].getPlayerName() + ' : ' + players[j].getPlayerName());
+      // results[players[i]] = players[j];
+    }
+  }
+
+  return results;
+}
+
 function createGameLayout() {
   var numberOfPlayers = players.length;
 

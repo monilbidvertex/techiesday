@@ -106,8 +106,17 @@ function generateRandomSequenceOfNumbers() {
   return randomOrder;
 }
 
-function displayQuestion() {
+function displayQuestion(playersMatches) {
   // Display a new question in the game.
+
+  var randomMatch = generateRandomMatch(playersMatches);
+  if (randomMatch) {
+    writePlayerMatch(randomMatch);
+  } else {
+    alert("Matches are done!");
+    return;
+  }
+
   if(orderOfQuestions.length == 0) {
     alert("Whoops! All out of questions. :(");
     return;
@@ -120,4 +129,17 @@ function displayQuestion() {
 
   // Remove the last element of the array.
   orderOfQuestions.pop();
+}
+
+function writePlayerMatch(playerMatch) {
+  var playerMatchElement = document.getElementById("player_match");
+  playerMatchElement.innerText = playerMatch;
+}
+
+function generateRandomMatch(playerMatches) {
+  var randomNumber =  Math.floor(Math.random() * (playerMatches.length - 2) + 1);
+  console.log(randomNumber);
+  var randomMatch = playerMatches[randomNumber];
+  playerMatches.splice(randomNumber, 1);
+  return randomMatch;
 }

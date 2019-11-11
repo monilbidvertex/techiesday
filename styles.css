@@ -89,6 +89,12 @@
   font-size: 60px;
 }
 
+#player_match {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 40px;
+}
+
 .player_points {
   display: inline-block;
   margin-left: 20%;
